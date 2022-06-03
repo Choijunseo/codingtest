@@ -1,0 +1,9 @@
+import re
+def solution(s):
+    answer=s
+    lst=['zero','one','two','three','four','five','six','seven','eight','nine']
+    for i in lst:
+        if i in s:
+            answer=re.sub(i,str(lst.index(i)),answer)
+    answer=int(answer)        
+    return answer
