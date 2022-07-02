@@ -1,0 +1,18 @@
+def solution(n, lost, reserve):
+    answer = 0
+    lost2=lost.copy()
+    for i in lost2:
+        if i in reserve:
+            reserve.remove(i)
+            lost.remove(i)
+        elif i-1 in reserve:
+            reserve.remove(i-1)
+            lost.remove(i)
+        elif i+1 in reserve:
+            reserve.remove(i+1)
+            lost.remove(i)   
+    answer=n-len(lost)    
+    return answer
+    ///
+    85%의 정확도 정확히 어떤 부분이 15%의 오류를 내는지 모르겠음
+    ///
