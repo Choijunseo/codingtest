@@ -1,0 +1,11 @@
+from itertools import combinations
+def solution(nums):
+    nums2=list(set(nums))
+    answer=len(nums2) if len(nums2)<int(len(nums)/2) else int(len(nums)/2)
+    #lst=list(combinations(nums,int(len(nums)/2)))
+    #answer=max([len(set(i)) for i in lst])
+    return answer
+///
+처음엔 콤비네이션 함수를 사용해 풀이했으나 실행시간초과로 실패
+이후 수정후 성공
+///
