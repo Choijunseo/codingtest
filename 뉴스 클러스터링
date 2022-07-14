@@ -1,0 +1,25 @@
+import re
+def solution(str1, str2):
+    answer = 0
+    p=re.compile(r'[a-z]*')
+    str1=str1.lower()
+    str2=str2.lower()
+    unicount=0
+    intercount=0
+    str1lst=[str1[i]+str1[i+1] for i in range(0,len(str1)-1) if p.fullmatch(str1[i]+str1[i+1]) != None]
+    str2lst=[str2[i]+str2[i+1] for i in range(0,len(str2)-1) if p.fullmatch(str2[i]+str2[i+1]) != None]
+    if str1lst==[] and str2lst==[]:
+        return 65536
+    a=list(set(str1lst+str2lst))
+    dic1={i:str1lst.count(i) for i in a}
+    dic2={i:str2lst.count(i) for i in a}
+    a=list(set(str1lst+str2lst))
+    for i in a:
+        if dic1[i] !=0 and dic2[i] !=0:
+            intercount +=min(dic1[i],dic2[i])
+        unicount += max(dic1[i],dic2[i])
+    jaccard=intercount/unicount
+    return int(65536*jaccard)
+    ///
+    정규표현식 사용법숙지의 필요성을 느낌,파이썬의 set연산자들을 알았다면 더쉽게 풀었을것이란 아쉬움이 남음
+    ///
