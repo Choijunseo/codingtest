@@ -1,0 +1,14 @@
+def solution(arr1, arr2):
+    for i in range(len(arr1)):
+        for j in range(len(arr1[i])):
+            arr1[i][j] +=arr2[i][j]
+    return arr1
+    
+    ///
+    zip을 활용한 풀이가 이해가 잘되지 않았다. zip을 활용하는법을 더 숙달해야될거 같다.
+    def solution(arr1, arr2):
+    for i in range(len(arr1)):
+        for j in range(len(arr1[i])):
+            arr1[i][j] +=arr2[i][j]
+    return arr1
+    ///
