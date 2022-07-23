@@ -1,0 +1,12 @@
+def solution(n):
+    answer = 0
+    lst=[]
+    c=0
+    while n >=3:
+        lst.append(n%3)
+        n = n//3
+    lst.append(n)
+    for i in lst[::-1]:
+        answer += i*(3**c)
+        c +=1
+    return answer
