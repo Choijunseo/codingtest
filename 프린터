@@ -1,0 +1,15 @@
+def solution(priorities, location):
+    if location ==0 :
+        if max(priorities)==priorities[0]:
+            return 1
+        else:
+            return solution(priorities[1:]+priorities[0:1],len(priorities)-1)
+    else:
+        if priorities[0] !=max(priorities):
+            return solution(priorities[1:]+priorities[0:1],location-1)
+        else:
+            return 1+solution(priorities[1:],location-1)
+            
+            ///
+            재귀함수와 매 함수마다 max를 사용하여 효율이 좋지는 않을것 같다
+            ///
