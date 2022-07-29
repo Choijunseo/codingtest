@@ -1,0 +1,17 @@
+from itertools import permutations
+def solution(numbers):
+    lst=[]
+    count=0
+    for i in range(1,len(numbers)+1):
+        lst=lst+list(set(permutations(numbers,i)))
+    lst=list(set([int(''.join(i)) for i in lst]))
+    for i in lst:
+        if i<=1:
+            pass
+        else:
+            for j in range(2,i):
+                if i%j==0:
+                    break
+            else:
+                count +=1
+    return count
