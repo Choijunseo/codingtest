@@ -1,0 +1,60 @@
+a,b=map(int,input().split())
+row,col=0,0
+lst=[[-1 for j in range(b)] for i in range(a)]
+cnt=-1
+while True:
+    while 0<=col+1<b and lst[row][col+1]==-1:
+        cnt +=1
+        lst[row][col]=cnt
+        row,col=row,col+1
+        
+    while 0<=row+1<a and lst[row+1][col]==-1:
+        cnt+=1
+        lst[row][col]=cnt
+        row,col=row+1,col
+        
+    while 0<=col-1<b and lst[row][col-1]==-1:
+        cnt+=1
+        lst[row][col]=cnt
+        row,col=row,col-1
+        
+    while 0<=row-1<b and lst[row-1][col]==-1:
+        cnt +=1
+        lst[row][col]=cnt
+        row,col=row-1,col
+    
+    if cnt+1==(a*b-1):
+        lst[row][col] = cnt+1
+        break
+for i in range(a):
+    for j in range(b):
+        print(lst[i][j],end=' ')
+    print()
+
+///
+오른쪽 아래 왼쪽 위 순서로 배열을 이동하면서 값을 넣어준다는 생각으로 접근했으나 구현하는 과정에서
+많은 시행착오와 여러번 실행시켜보며 끼워맞추기식으로 어렵게 구현하였다. 
+n,m = 6,6
+d = [[0]*(n) for _ in range(m)]
+count = 0
+a,b = 0,-1
+direction = 1
+while 1:
+    m -=1
+    for i in range(n):
+        b +=direction
+        d[a][b] = count
+        count+=1
+    for j in range(m):
+        a+=direction
+        d[a][b] = count
+        count+=1
+    direction *=-1
+    n -=1
+    if count == (n*m): break
+for i in d:
+    for j in i:
+        print(f'{j:3d}',end=' ')
+    print()
+코딩도장에서 가져온 다른 분의 풀이이다. 어떻게 이렇게 논리적으로 깔끔하게 구현 했는지 신기하다.
+이 풀이를 자주 보면서 익숙해져야겠다.
