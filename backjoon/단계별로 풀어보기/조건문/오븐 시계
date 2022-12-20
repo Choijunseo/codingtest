@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc =new Scanner(System.in);
+		int H=sc.nextInt();
+		int M=sc.nextInt();
+		int N=sc.nextInt();
+		
+		H = (H+(M+N)/60)%24;
+		M = (M+N)%60;
+		
+		System.out.printf("%d %d",H,M);
+	}
+}
