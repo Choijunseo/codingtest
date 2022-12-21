@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc =new Scanner(System.in);
+		int totalPrice =sc.nextInt();
+		int num=sc.nextInt();
+		int price;
+		int cnt;
+		int sum=0;
+		for(int i =0 ; i<num;i++) {
+			price=sc.nextInt();
+			cnt = sc.nextInt();
+			sum +=price*cnt;
+		}
+		if (sum==totalPrice) {
+			System.out.println("Yes");
+		}
+		else 
+			System.out.println("No");	
+	}
+}
